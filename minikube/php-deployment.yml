@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-app
+  template:
+    metadata:
+      labels:
+        app: php-app
+    spec:
+      containers:
+      - name: php-app
+        image: teoladouche/gp-php:8.2-apache
+        ports:
+        - containerPort: 80
+        envFrom:
+          - configMapRef:
+              name: php-configmap

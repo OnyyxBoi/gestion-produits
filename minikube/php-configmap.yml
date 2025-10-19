@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: php-configmap
+data:
+  DB_HOST: db
+  DB_NAME: gestion_produits
